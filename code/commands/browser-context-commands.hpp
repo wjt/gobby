@@ -109,8 +109,9 @@ protected:
 	std::unique_ptr<NodeWatch> m_popup_watch;
 	gulong m_populate_popup_handler;
 
-	// Dialog
+	// Dialogs
 	std::unique_ptr<Gtk::Dialog> m_dialog;
+	std::unique_ptr<FileChooser::Dialog> m_file_chooser_dialog;
 	std::unique_ptr<NodeWatch> m_dialog_watch;
 
 	// Allowed Actions (TODO: move them to browsercontextactions.cpp)

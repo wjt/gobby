@@ -386,8 +386,8 @@ void Gobby::BrowserContextCommands::on_open(const Glib::VariantBase& param)
 
 	file_dialog->set_select_multiple(true);
 
-	m_dialog = std::move(file_dialog);
-	m_dialog->present();
+	m_file_chooser_dialog = std::move(file_dialog);
+	m_file_chooser_dialog->show();
 }
 
 void Gobby::BrowserContextCommands::on_permissions(
@@ -430,6 +430,7 @@ void Gobby::BrowserContextCommands::on_delete(
 void Gobby::BrowserContextCommands::on_dialog_node_removed()
 {
 	m_dialog.reset(NULL);
+	m_file_chooser_dialog.reset(NULL);
 	m_dialog_watch.reset(NULL);
 }
 
@@ -596,8 +597,7 @@ void Gobby::BrowserContextCommands::on_open_response(int response_id,
                                                      InfBrowser* browser,
                                                      InfBrowserIter iter)
 {
-	FileChooser::Dialog* dialog =
-		static_cast<FileChooser::Dialog*>(m_dialog.get());
+	FileChooser::Dialog* dialog = m_file_chooser_dialog.get();
 	if(response_id == Gtk::RESPONSE_ACCEPT)
 	{
 		const std::vector<Glib::RefPtr<Gio::File> > files =
@@ -608,6 +608,7 @@ void Gobby::BrowserContextCommands::on_open_response(int response_id,
 	}
 
 	m_dialog.reset(NULL);
+	m_file_chooser_dialog.reset(NULL);
 	m_dialog_watch.reset(NULL);
 }
 

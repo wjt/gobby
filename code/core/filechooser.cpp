@@ -24,26 +24,10 @@ Gobby::FileChooser::Dialog::Dialog(Gobby::FileChooser& chooser,
                                    Gtk::Window& parent,
                                    const Glib::ustring& title,
                                    Gtk::FileChooserAction action):
-	Gtk::FileChooserDialog(parent, title, action),
+	Gtk::FileChooserNative(title, parent, action, "", ""),
 	m_chooser(chooser)
 {
-	// Set defaults depending on action
-	switch(action)
-	{
-	case Gtk::FILE_CHOOSER_ACTION_SAVE:
-		add_button(_("_Cancel"), Gtk::RESPONSE_CANCEL);
-		add_button(_("_Save"), Gtk::RESPONSE_ACCEPT);
-		set_do_overwrite_confirmation(true);
-		break;
-	case Gtk::FILE_CHOOSER_ACTION_OPEN:
-		add_button(_("_Cancel"), Gtk::RESPONSE_CANCEL);
-		add_button(_("_Open"), Gtk::RESPONSE_ACCEPT);
-		break;
-	default:
-		g_assert_not_reached();
-		break;
-	}
-
+	// TODO: the dialog prevents interaction with the parent window but Shell does not grey it out. If I toggle the 'modal' property on the dialog to false then true again with the inspector, it behaves as expected. Is this a Shell bug, a portal bug, or something else?
 	set_modal(true);
 	set_local_only(false);
 	set_current_folder_uri(m_chooser.get_current_folder_uri());

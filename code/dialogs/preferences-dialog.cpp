@@ -693,7 +693,7 @@ void Gobby::PreferencesDialog::Security::on_create_key_clicked()
 		sigc::mem_fun(
 			*this, &Security::on_file_dialog_response_key));
 
-	m_file_dialog->present();
+	m_file_dialog->show();
 }
 
 void Gobby::PreferencesDialog::Security::on_create_cert_clicked()
@@ -713,7 +713,7 @@ void Gobby::PreferencesDialog::Security::on_create_cert_clicked()
 			*this,
 			&Security::on_file_dialog_response_certificate));
 
-	m_file_dialog->present();
+	m_file_dialog->show();
 }
 
 void Gobby::PreferencesDialog::Security::on_file_dialog_response_key(

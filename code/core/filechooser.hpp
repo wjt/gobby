@@ -17,7 +17,7 @@
 #ifndef _GOBBY_FILE_CHOOSER_HPP_
 #define _GOBBY_FILE_CHOOSER_HPP_
 
-#include <gtkmm/filechooserdialog.h>
+#include <gtkmm/filechoosernative.h>
 #include <gtkmm/window.h>
 
 namespace Gobby
@@ -28,7 +28,7 @@ namespace Gobby
 class FileChooser
 {
 public:
-	class Dialog: public Gtk::FileChooserDialog
+	class Dialog: public Gtk::FileChooserNative
 	{
 	public:
 		Dialog(Gobby::FileChooser& chooser, Gtk::Window& parent,

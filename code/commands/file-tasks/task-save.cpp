@@ -55,7 +55,7 @@ void Gobby::TaskSave::run()
 	else
 		m_file_dialog.set_current_name(m_view->get_title());
 
-	m_file_dialog.present();
+	m_file_dialog.show();
 }
 
 void Gobby::TaskSave::on_response(int response_id)

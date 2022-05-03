@@ -49,7 +49,7 @@ void Gobby::TaskExportHtml::run()
 		*this, &TaskExportHtml::on_response));
 
 	m_file_dialog.set_current_name(m_view->get_title() + ".xhtml");
-	m_file_dialog.present();
+	m_file_dialog.show();
 }
 
 void Gobby::TaskExportHtml::on_response(int response_id)

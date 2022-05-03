@@ -30,7 +30,7 @@ void Gobby::TaskOpenFile::run()
 	m_file_dialog.signal_response().connect(sigc::mem_fun(
 		*this, &TaskOpenFile::on_file_response));
 
-	m_file_dialog.present();
+	m_file_dialog.show();
 }
 
 void Gobby::TaskOpenFile::on_file_response(int response_id)

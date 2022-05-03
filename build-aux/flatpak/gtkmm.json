@@ -1,0 +1,179 @@
+{
+    "//": "NB: all versions are pinned below a coordinated ABI break",
+    "name": "gtkmm",
+    "sources": [
+        {
+            "sha256": "856333de86689f6a81c123f2db15d85db9addc438bc3574c36f15736aeae22e6",
+            "type": "archive",
+            "url": "https://download.gnome.org/sources/gtkmm/3.24/gtkmm-3.24.5.tar.xz",
+            "x-checker-data": {
+                "type": "gnome",
+                "name": "gtkmm",
+                "versions": {
+                    "<": "3.25"
+                }
+            }
+        }
+    ],
+    "buildsystem": "meson",
+    "config-opts": [
+        "-Dmaintainer-mode=false",
+        "-Dbuild-demos=false",
+        "-Dbuild-tests=false"
+    ],
+    "cleanup": [
+        "*.a",
+        "*.la",
+        "/include",
+        "/lib/gdkmm-3.0",
+        "/lib/gtkmm-3.0",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/aclocal",
+        "/share/man",
+        "/share/pkgconfig"
+    ],
+    "modules": [
+        {
+            "name": "sigc++",
+            "sources": [
+                {
+                    "sha256": "235a40bec7346c7b82b6a8caae0456353dc06e71f14bc414bcc858af1838719a",
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.8.tar.xz",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "libsigc++",
+                        "//": "later versions are incompatible with gtkmm3.24",
+                        "versions": {
+                            "<": "2.11"
+                        }
+                    }
+                }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuild-examples=false"
+            ],
+            "cleanup": [
+                "*.la",
+                "/include/sigc++-2.0",
+                "/lib/pkgconfig",
+                "/lib/sigc++-2.0"
+            ]
+        },
+        {
+            "name": "glibmm",
+            "sources": [
+                {
+                    "sha256": "b2a4cd7b9ae987794cbb5a1becc10cecb65182b9bb841868625d6bbb123edb1d",
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.2.tar.xz",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "glibmm",
+                        "//": "later versions have ABI break",
+                        "versions": {
+                            "<": "2.67"
+                        }
+                    }
+                }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuild-examples=false"
+            ],
+            "cleanup": [
+                "*.la",
+                "/include/glibmm-2.4",
+                "/include/giomm-2.4",
+                "/lib/glibmm-2.4",
+                "/lib/giomm-2.4",
+                "/lib/libglibmm_generate_extra_defs*",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "name": "cairomm",
+            "sources": [
+                {
+                    "sha256": "0d37e067c5c4ca7808b7ceddabfe1932c5bd2a750ad64fb321e1213536297e78",
+                    "type": "archive",
+                    "url": "https://www.cairographics.org/releases/cairomm-1.14.3.tar.xz",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 7959,
+                        "url-template": "https://www.cairographics.org/releases/cairomm-$version.tar.xz",
+                        "versions": {
+                            "<": "1.15"
+                        }
+                    }
+                }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuild-examples=false"
+            ],
+            "cleanup": [
+                "*.la",
+                "/include/cairomm-1.0",
+                "/lib/cairomm-1.0",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "name": "pangomm",
+            "sources": [
+                {
+                    "sha256": "57442ab4dc043877bfe3839915731ab2d693fc6634a71614422fb530c9eaa6f4",
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/pangomm/2.46/pangomm-2.46.2.tar.xz",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "pangomm",
+                        "versions": {
+                            "<": "2.47"
+                        }
+                    }
+                }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuild-examples=false"
+            ],
+            "cleanup": [
+                "*.la",
+                "/include/pangomm-1.4",
+                "/lib/pangomm-1.4",
+                "/lib/pkgconfig"
+            ]
+        },
+        {
+            "name": "atkmm",
+            "sources": [
+                {
+                    "sha256": "a0bb49765ceccc293ab2c6735ba100431807d384ffa14c2ebd30e07993fd2fa4",
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/atkmm/2.28/atkmm-2.28.2.tar.xz",
+                    "x-checker-data": {
+                        "type": "gnome",
+                        "name": "atkmm",
+                        "versions": {
+                            "<": "2.35"
+                        }
+                    }
+                }
+            ],
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuild-examples=false"
+            ],
+            "cleanup": [
+                "*.la",
+                "/include/atkmm-1.6",
+                "/lib/atkmm-1.6",
+                "/lib/pkgconfig"
+            ]
+        }
+    ]
+}
